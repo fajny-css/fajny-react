@@ -17,7 +17,7 @@ import { fajnyIconsType } from "./common-types"
 const Modal = ({ children, isOpen, close, iconClose, fajnyIconClose = "close-solid", ...props }: props) => {
     useEffect(() => {
         isOpen ? document.body.classList.add("stop-scrolling") : document.body.classList.remove("stop-scrolling")
-    },)
+    })
 
     return (
         <Container $isOpen={isOpen} {...props}>

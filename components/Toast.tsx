@@ -23,7 +23,7 @@ const Toast = ({
     fajnyIcon,
     iconClose,
     fajnyIconClose,
-    iconColor = Variables.Colors.Primary500,
+    iconColor = "primary",
     ...props
 }: props) => {
     const [isClosed, setIsClosed] = useState(false)
