@@ -208,15 +208,31 @@ const Input = ({
     type,
     disabled,
     name,
-    icon,
-    fajnyIcon,
     iconValidationPassed,
     fajnyIconValidationPassed,
     iconValidationNotPassed,
     fajnyIconValidationNotPassed,
+    password,
+    iconCalendar,
+    fajnyIconCalendar,
+    iconClock,
+    fajnyIconClock,
+    iconShowPassword,
+    fajnyIconShowPassword,
+    iconHidePassword,
+    fajnyIconHidePassword,
+    textHidePassword,
+    textShowPassword,
+    iconClear,
+    fajnyIconClear,
+    iconSelect,
+    fajnyIconSelect,
+    icon,
+    fajnyIcon,
     clearSearch,
     ...props
-}: props) => {
+}:
+props) => {
     return label || helper || helperBottom || counter ? (
         <InputContainer
             id={id}
@@ -242,6 +258,21 @@ const Input = ({
                 value={value}
                 maxLength={maxLength}
                 clearSearch={clearSearch}
+                password={password}
+                iconCalendar={iconCalendar}
+                fajnyIconCalendar={fajnyIconCalendar}
+                iconClock={iconClock}
+                fajnyIconClock={fajnyIconClock}
+                iconShowPassword={iconShowPassword}
+                fajnyIconShowPassword={fajnyIconShowPassword}
+                iconHidePassword={iconHidePassword}
+                fajnyIconHidePassword={fajnyIconHidePassword}
+                textHidePassword={textHidePassword}
+                textShowPassword={textShowPassword}
+                iconClear={iconClear}
+                fajnyIconClear={fajnyIconClear}
+                iconSelect={iconSelect}
+                fajnyIconSelect={fajnyIconSelect}
                 {...props}
             />
         </InputContainer>
@@ -256,11 +287,26 @@ const Input = ({
             fajnyIcon={fajnyIcon}
             iconValidationPassed={iconValidationPassed}
             iconValidationNotPassed={iconValidationNotPassed}
-            fajnyIconValidationPassed={fajnyIconValidationPassed}
-            fajnyIconValidationNotPassed={fajnyIconValidationNotPassed}
+            fajnyIconValidationPassed={fajnyIconValidationPassed || "check-circle-solid"}
+            fajnyIconValidationNotPassed={fajnyIconValidationNotPassed || "close-circle-solid"}
             value={value}
             maxLength={maxLength}
             clearSearch={clearSearch}
+            password={password}
+            iconCalendar={iconCalendar}
+            fajnyIconCalendar={fajnyIconCalendar}
+            iconClock={iconClock}
+            fajnyIconClock={fajnyIconClock}
+            iconShowPassword={iconShowPassword}
+            fajnyIconShowPassword={fajnyIconShowPassword}
+            iconHidePassword={iconHidePassword}
+            fajnyIconHidePassword={fajnyIconHidePassword}
+            textHidePassword={textHidePassword}
+            textShowPassword={textShowPassword}
+            iconClear={iconClear}
+            fajnyIconClear={fajnyIconClear}
+            iconSelect={iconSelect}
+            fajnyIconSelect={fajnyIconSelect}
             {...props}
         />
     )
@@ -442,6 +488,10 @@ const InputStyled = styled.input<styleProps>`
                 background-color: ${Variables.Colors.Gray100};
                 color: ${Variables.Colors.Gray500};
                 cursor: not-allowed;
+            }
+
+            &:disabled::file-selector-button {
+                color: ${Variables.Colors.Gray500};
             }
 
             @media ${Variables.Breakpoints.Touch} {

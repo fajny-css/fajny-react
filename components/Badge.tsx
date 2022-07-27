@@ -31,7 +31,7 @@ const Badge = ({ color = "primary", size = "xxl", children, icon, fajnyIcon, ...
             : 4
 
     return (
-        <Container $color={color} $size={size} {...props}>
+        <Container $color={color} $size={size} $children={!!children} $childrenLength={children?.length} {...props}>
             {children && children}
             {icon && <Icon src={icon} size={iconSizes} />}
             {fajnyIcon && <FajnyIcon name={fajnyIcon} size={iconSizes} />}
@@ -46,6 +46,8 @@ export default Badge
 interface styleProps extends React.HTMLAttributes<HTMLSpanElement> {
     $color?: colorsShortType
     $size?: spacersType
+    $children?: boolean
+    $childrenLength?: number
 }
 
 interface baseProps extends React.HTMLAttributes<HTMLSpanElement> {
@@ -75,10 +77,8 @@ type props = numberProps | iconProps | fajnyIconProps
 
 /*==================== Styles ====================*/
 
-// sizes: 64 48 32 24 16 12 8
-
 const Container = styled.span<styleProps>`
-    width: ${({ $size }) =>
+    min-width: ${({ $size }) =>
         $size === "xxl"
             ? 64
             : $size === "xl"
@@ -126,7 +126,24 @@ const Container = styled.span<styleProps>`
         $justify: "center",
     })};
     background-color: ${Mixins.ColorsShort};
-    border-radius: ${Variables.Radiuses.Circle};
+    border-radius: ${Variables.Radiuses.Round};
     color: ${({ $color }) => ($color === "white" ? Variables.Colors.Primary500 : Variables.Colors.White)};
     font-weight: ${Variables.FontWeights.Black};
+    padding: ${({ $children, $childrenLength, $size }) =>
+        $children &&
+        $childrenLength &&
+        $childrenLength > 2 &&
+        ($size === "xxl"
+            ? `0 ${Variables.Spacers.M}`
+            : $size === "xl"
+            ? `0 ${Variables.Spacers.S}`
+            : $size === "l"
+            ? `0 ${Variables.Spacers.S}`
+            : $size === "m"
+            ? `0 ${Variables.Spacers.XS}`
+            : $size === "s"
+            ? `0 ${Variables.Spacers.XS}`
+            : $size === "xs"
+            ? `0 ${Variables.Spacers.XXS}`
+            : $size === "xxs" && `0 ${Variables.Spacers.XXS}`)};
 `

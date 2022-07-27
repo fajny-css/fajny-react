@@ -18,8 +18,8 @@ const Form = ({
     buttonPrimary,
     buttonSecondary = undefined,
     buttonSecondaryText = buttonSecondary === "cancel" ? "Cancel" : buttonSecondary === "reset" ? "Reset" : "",
-    buttonCancelTo,
-    onClickReset,
+    buttonSecondaryTo,
+    onClickSecondary,
     iconLeftPrimary,
     iconRightPrimary,
     iconLeftSecondary,
@@ -40,11 +40,11 @@ const Form = ({
 
                     {buttonSecondary && (
                         <Button
-                            type={buttonSecondary === "reset" ? "reset" : buttonCancelTo ? undefined : "button"}
-                            to={buttonCancelTo && buttonCancelTo}
+                            type={buttonSecondary === "reset" ? "reset" : buttonSecondaryTo ? undefined : "button"}
+                            to={buttonSecondaryTo && buttonSecondaryTo}
                             buttonStyle="text"
                             color="primary"
-                            onClick={onClickReset}
+                            onClick={onClickSecondary}
                             fajnyIconLeft={iconLeftSecondary}
                             fajnyIconRight={iconRightSecondary}
                         >
@@ -65,8 +65,8 @@ interface props extends React.HTMLAttributes<HTMLFormElement> {
     buttonPrimary?: string
     buttonSecondary?: "cancel" | "reset" | undefined
     buttonSecondaryText?: string
-    buttonCancelTo?: string
-    onClickReset?: (e: React.MouseEvent<HTMLButtonElement>) => void
+    buttonSecondaryTo?: string
+    onClickSecondary?: (e: React.MouseEvent<HTMLButtonElement>) => void
     iconLeftPrimary?: fajnyIconsType
     iconRightPrimary?: fajnyIconsType
     iconLeftSecondary?: fajnyIconsType
