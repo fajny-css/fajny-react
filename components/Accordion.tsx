@@ -87,7 +87,7 @@ const Button = styled.button<buttonProps>`
 
 const AccordionItem = ({
     isOpen = false,
-    icon,
+    icon = "plus",
     title,
     content,
     $accordionStyle = "basic",

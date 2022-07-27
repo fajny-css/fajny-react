@@ -151,6 +151,7 @@ const CloseButton = styled.button`
     })};
     background-color: transparent;
     transition: ${Variables.Transitions.Short};
+    color: ${Variables.Colors.Primary500};
 
     &:hover {
         background-color: ${Variables.Colors.Gray50};
