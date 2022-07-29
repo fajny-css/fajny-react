@@ -47,4 +47,5 @@ const Container = styled.div<styleProps>`
         $align: "center",
         $justify: "center",
     })};
+    z-index: 999;
 `

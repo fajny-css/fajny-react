@@ -1,6 +1,6 @@
 {
-    "name": "fajny-react-v3",
-    "version": "3.0.46",
+    "name": "fajny-react",
+    "version": "3.0.1",
     "private": false,
     "dependencies": {
         "js-utils-julseb": "^2.0.2",

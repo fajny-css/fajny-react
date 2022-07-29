@@ -16,7 +16,7 @@ import { fajnyIconsType } from "./common-types"
 /*==================== Component ====================*/
 
 const Paginator = ({
-    justify,
+    justify = "left",
     textPage = "Page",
     textOf = "of",
     iconPrev,
