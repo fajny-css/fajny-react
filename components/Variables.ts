@@ -208,6 +208,7 @@ const Variables = {
         Tablet: "(max-width: 1024px)",
         Mobile: "(max-width: 600px)",
         Touch: "(hover: none) and (pointer: coarse)",
+        Hover: "(hover: hover)",
     },
 }
 

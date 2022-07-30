@@ -91,12 +91,14 @@ const Tile = ({ $validation, $disabled }: styleProps) => css`
     width: 100%;
     transition: ${Variables.Transitions.Short};
 
-    &:hover {
-        border-color: ${$validation === "not-passed" && !$disabled
-            ? Variables.Colors.Danger300
-            : $disabled
-            ? Variables.Colors.Gray200
-            : Variables.Colors.Primary300};
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            border-color: ${$validation === "not-passed" && !$disabled
+                ? Variables.Colors.Danger300
+                : $disabled
+                ? Variables.Colors.Gray200
+                : Variables.Colors.Primary300};
+        }
     }
 `
 
@@ -249,15 +251,17 @@ const Selector = styled.label<styleProps>`
         $validation === "not-passed" ? Variables.Colors.Danger50 : Variables.Colors.Gray100};
     color: ${({ $validation }) => ($validation === "not-passed" ? Variables.Colors.Danger500 : Variables.Colors.Black)};
 
-    &:hover {
-        background-color: ${({ $validation }) =>
-            $validation === "not-passed" ? Variables.Colors.Danger300 : Variables.Colors.Primary300};
-        color: ${Variables.Colors.White};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${({ $validation }) =>
+                $validation === "not-passed" ? Variables.Colors.Danger300 : Variables.Colors.Primary300};
+            color: ${Variables.Colors.White};
+        }
 
-    &:active {
-        background-color: ${({ $validation }) =>
-            $validation === "not-passed" ? Variables.Colors.Danger600 : Variables.Colors.Primary600};
+        &:active {
+            background-color: ${({ $validation }) =>
+                $validation === "not-passed" ? Variables.Colors.Danger600 : Variables.Colors.Primary600};
+        }
     }
 `
 
@@ -311,15 +315,17 @@ const Input = styled.input<styleProps>`
                 $validation === "not-passed" ? Variables.Colors.Danger500 : Variables.Colors.Primary500};
             color: ${Variables.Colors.White};
 
-            &:hover {
-                background-color: ${({ $validation }) =>
-                    $validation === "not-passed" ? Variables.Colors.Danger300 : Variables.Colors.Primary300};
-                color: ${Variables.Colors.White};
-            }
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover {
+                    background-color: ${({ $validation }) =>
+                        $validation === "not-passed" ? Variables.Colors.Danger300 : Variables.Colors.Primary300};
+                    color: ${Variables.Colors.White};
+                }
 
-            &:active {
-                background-color: ${({ $validation }) =>
-                    $validation === "not-passed" ? Variables.Colors.Danger600 : Variables.Colors.Primary600};
+                &:active {
+                    background-color: ${({ $validation }) =>
+                        $validation === "not-passed" ? Variables.Colors.Danger600 : Variables.Colors.Primary600};
+                }
             }
         }
     }
@@ -333,8 +339,10 @@ const Input = styled.input<styleProps>`
             background-color: ${Variables.Colors.Gray50};
             color: ${Variables.Colors.Gray500};
 
-            &:hover {
-                color: ${Variables.Colors.Gray500};
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover {
+                    color: ${Variables.Colors.Gray500};
+                }
             }
         }
 
@@ -364,10 +372,12 @@ const Input = styled.input<styleProps>`
                     : Variables.Colors.Primary500};
             }
 
-            &:not(:disabled) ~ ${Radio}:hover, &:not(:disabled) ~ ${Checkbox}:hover {
-                border-color: ${($validation === "not-passed" && !disabled)
-                    ? Variables.Colors.Danger300
-                    : Variables.Colors.Primary300};
+            @media ${Variables.Breakpoints.Hover} {
+                &:not(:disabled) ~ ${Radio}:hover, &:not(:disabled) ~ ${Checkbox}:hover {
+                    border-color: ${$validation === "not-passed" && !disabled
+                        ? Variables.Colors.Danger300
+                        : Variables.Colors.Primary300};
+                }
             }
         `}
 `

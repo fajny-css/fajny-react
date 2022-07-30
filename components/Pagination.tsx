@@ -92,11 +92,10 @@ const Container = styled.div<styleProps>`
         })};
 `
 
-const buttonSize = 32
-
 const Button = styled.button<buttonStyleProps>`
-    width: ${buttonSize}px;
-    height: ${buttonSize}px;
+    --button-size: 32px;
+    width: var(--button-size);
+    height: var(--button-size);
     border-radius: ${Variables.Radiuses.Circle};
     border: none;
     ${Mixins.Flexbox({
@@ -125,5 +124,9 @@ const Button = styled.button<buttonStyleProps>`
 
     &:disabled {
         color: ${Variables.Colors.Gray500};
+    }
+
+    @media ${Variables.Breakpoints.Mobile} {
+        --button-size: 24px;
     }
 `

@@ -84,7 +84,7 @@ interface styleProps extends React.HTMLAttributes<HTMLDivElement> {
     $alignItems?: gridAlignItemsType
     $justifyContent?: gridJustifyContentType
     $alignContent?: gridAlignContentType
-    $padding?: spacersType | number | string
+    $padding?: spacersType | number | string
     $colTablet?: string
     $colMobile?: string
 }
@@ -185,6 +185,15 @@ const Container = styled.div<styleProps>`
             : $padding
             ? stringifyPx($padding)
             : ""};
+
+    @media ${Variables.Breakpoints.Tablet} {
+        grid-template-columns: ${({ $col }) =>
+            $col && $col >= 6 ? "repeat(4, 1fr)" : $col === 4 || $col === 5 ? "repeat(3, 1fr)" : "repeat(2, 1fr)"};
+    }
+
+    @media ${Variables.Breakpoints.Mobile} {
+        grid-template-columns: ${({ $col }) => ($col && $col >= 6 ? "repeat(2, 1fr)" : "repeat(1, 1fr)")};
+    }
 
     ${({ $col, $colTablet, $colMobile }) =>
         typeof $col === "number"
