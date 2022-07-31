@@ -47,18 +47,13 @@ const Container = styled.button<styleProps>`
     height: 24px;
     color: ${Mixins.ColorsHoverDefault};
 
-    &:hover {
-        color: ${Mixins.ColorsHoverHover};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            color: ${Mixins.ColorsHoverHover};
+        }
 
-    &:active {
-        color: ${Mixins.ColorsHoverActive};
-    }
-
-    @media ${Variables.Breakpoints.Touch} {
-        &:hover,
         &:active {
-            color: ${Mixins.ColorsHoverDefault};
+            color: ${Mixins.ColorsHoverActive};
         }
     }
 

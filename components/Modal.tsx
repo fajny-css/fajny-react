@@ -71,10 +71,10 @@ const Container = styled.div<styleProps>`
     z-index: 9999;
     width: 100vw;
     height: 100vh;
-    display: ${({ $isOpen }) => $isOpen ? "flex" : "none"};
+    display: ${({ $isOpen }) => ($isOpen ? "flex" : "none")};
     align-items: center;
     justify-content: center;
-    background-color: ${Variables.Overlays.Plain.Black80}
+    background-color: ${Variables.Overlays.Plain.Black80};
 `
 
 const Content = styled.div`
@@ -105,11 +105,9 @@ const CloseButton = styled.button`
         $justify: "center",
     })};
 
-    &:hover {
-        background-color: ${Variables.Colors.Gray800};
-
-        @media ${Variables.Breakpoints.Touch} {
-            background-color: transparent;
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${Variables.Colors.Gray800};
         }
     }
 `

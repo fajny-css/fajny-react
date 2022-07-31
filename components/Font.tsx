@@ -170,12 +170,14 @@ const FontCommon = ({ $color, $textAlign }: commonStyleProps) => css`
         color: ${$color === "white" ? Variables.Colors.White : Variables.Colors.Primary500};
         text-decoration: none;
 
-        &:hover {
-            color: ${$color === "white" ? Variables.Colors.Gray300 : Variables.Colors.Primary300};
-        }
+        @media ${Variables.Breakpoints.Hover} {
+            &:hover {
+                color: ${$color === "white" ? Variables.Colors.Gray300 : Variables.Colors.Primary300};
+            }
 
-        &:active {
-            color: ${$color === "white" ? Variables.Colors.Gray100 : Variables.Colors.Primary600};
+            &:active {
+                color: ${$color === "white" ? Variables.Colors.Gray100 : Variables.Colors.Primary600};
+            }
         }
     }
 

@@ -67,12 +67,14 @@ const Container = styled.footer<styleProps>`
         padding: 0;
         background-color: transparent;
 
-        &:hover {
-            color: ${Variables.Colors.Primary300};
-        }
+        @media ${Variables.Breakpoints.Hover} {
+            &:hover {
+                color: ${Variables.Colors.Primary300};
+            }
 
-        &:active {
-            color: ${Variables.Colors.Primary600};
+            &:active {
+                color: ${Variables.Colors.Primary600};
+            }
         }
     }
 

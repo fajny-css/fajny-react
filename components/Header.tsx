@@ -47,30 +47,21 @@ const Container = styled.header<styleProps>`
                 : Variables.Colors.White};
         text-decoration: none;
 
-        &:hover {
-            color: ${({ $color, $headerStyle }) =>
-                ($headerStyle === "plain" && $color === "white") ||
-                ($headerStyle === "transparent" && $color === "primary")
-                    ? Variables.Colors.Primary300
-                    : Variables.Colors.Gray300};
-        }
+        @media ${Variables.Breakpoints.Hover} {
+            &:hover {
+                color: ${({ $color, $headerStyle }) =>
+                    ($headerStyle === "plain" && $color === "white") ||
+                    ($headerStyle === "transparent" && $color === "primary")
+                        ? Variables.Colors.Primary300
+                        : Variables.Colors.Gray300};
+            }
 
-        &:active {
-            color: ${({ $color, $headerStyle }) =>
-                ($headerStyle === "plain" && $color === "white") ||
-                ($headerStyle === "transparent" && $color === "primary")
-                    ? Variables.Colors.Primary600
-                    : Variables.Colors.Gray100};
-        }
-
-        @media ${Variables.Breakpoints.Touch} {
-            &:hover,
             &:active {
                 color: ${({ $color, $headerStyle }) =>
                     ($headerStyle === "plain" && $color === "white") ||
                     ($headerStyle === "transparent" && $color === "primary")
-                        ? Variables.Colors.Primary500
-                        : Variables.Colors.White};
+                        ? Variables.Colors.Primary600
+                        : Variables.Colors.Gray100};
             }
         }
 

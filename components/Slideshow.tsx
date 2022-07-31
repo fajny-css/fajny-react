@@ -248,12 +248,14 @@ const Button = styled.button<buttonStyleProps>`
     background-color: ${Variables.Colors.Primary500};
     z-index: 2;
 
-    &:hover {
-        background-color: ${Variables.Colors.Primary300};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${Variables.Colors.Primary300};
+        }
 
-    &:active {
-        background-color: ${Variables.Colors.Primary600};
+        &:active {
+            background-color: ${Variables.Colors.Primary600};
+        }
     }
 `
 
@@ -275,11 +277,13 @@ const PaginationItem = styled.span<paginationStyleProps>`
     cursor: pointer;
     transition: ${Variables.Transitions.Short};
 
-    &:hover {
-        background-color: ${({ $active }) => ($active ? Variables.Colors.Primary300 : Variables.Colors.Primary500)};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${({ $active }) => ($active ? Variables.Colors.Primary300 : Variables.Colors.Primary500)};
+        }
 
-    &:active {
-        background-color: ${Variables.Colors.Primary600};
+        &:active {
+            background-color: ${Variables.Colors.Primary600};
+        }
     }
 `

@@ -166,11 +166,9 @@ const CloseButton = styled.button`
     transition: ${Variables.Transitions.Short};
     color: ${Variables.Colors.Primary500};
 
-    &:hover {
-        background-color: ${Variables.Colors.Gray50};
-
-        @media ${Variables.Breakpoints.Touch} {
-            background-color: transparent;
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${Variables.Colors.Gray50};
         }
     }
 `

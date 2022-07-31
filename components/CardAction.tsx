@@ -174,18 +174,13 @@ const LikeButton = styled.button`
     border-radius: ${Variables.Radiuses.Circle};
     transition: ${Variables.Transitions.Short};
 
-    &:hover {
-        background-color: ${Variables.Colors.Gray300};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${Variables.Colors.Gray300};
+        }
 
-    &:active {
-        background-color: ${Variables.Colors.Gray100};
-    }
-
-    @media ${Variables.Breakpoints.Touch} {
-        &:hover,
         &:active {
-            background-color: transparent;
+            background-color: ${Variables.Colors.Gray100};
         }
     }
 `

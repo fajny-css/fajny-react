@@ -231,8 +231,7 @@ const Input = ({
     fajnyIcon,
     clearSearch,
     ...props
-}:
-props) => {
+}: props) => {
     return label || helper || helperBottom || counter ? (
         <InputContainer
             id={id}
@@ -480,24 +479,20 @@ const InputStyled = styled.input<styleProps>`
                 cursor: pointer;
             }
 
-            &:hover::file-selector-button {
-                background-color: ${Variables.Colors.Gray300};
-            }
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover::file-selector-button {
+                    background-color: ${Variables.Colors.Gray300};
+                }
 
-            &:disabled:hover::file-selector-button {
-                background-color: ${Variables.Colors.Gray100};
-                color: ${Variables.Colors.Gray500};
-                cursor: not-allowed;
+                &:disabled:hover::file-selector-button {
+                    background-color: ${Variables.Colors.Gray100};
+                    color: ${Variables.Colors.Gray500};
+                    cursor: not-allowed;
+                }
             }
 
             &:disabled::file-selector-button {
                 color: ${Variables.Colors.Gray500};
-            }
-
-            @media ${Variables.Breakpoints.Touch} {
-                &:hover::file-selector-button {
-                    background-color: ${Variables.Colors.Gray100};
-                }
             }
         `}
 
@@ -524,12 +519,14 @@ const InputStyled = styled.input<styleProps>`
                 transform: translateX(1px);
                 transition: ${Variables.Transitions.Short};
 
-                &:hover {
-                    background-color: ${Variables.Colors.Primary300};
-                }
+                @media ${Variables.Breakpoints.Hover} {
+                    &:hover {
+                        background-color: ${Variables.Colors.Primary300};
+                    }
 
-                &:active {
-                    background-color: ${Variables.Colors.Primary600};
+                    &:active {
+                        background-color: ${Variables.Colors.Primary600};
+                    }
                 }
             }
         `}
@@ -551,12 +548,14 @@ const InputStyled = styled.input<styleProps>`
                 transform: translateX(1px);
                 transition: ${Variables.Transitions.Short};
 
-                &:hover {
-                    background-color: ${Variables.Colors.Primary300};
-                }
+                @media ${Variables.Breakpoints.Hover} {
+                    &:hover {
+                        background-color: ${Variables.Colors.Primary300};
+                    }
 
-                &:active {
-                    background-color: ${Variables.Colors.Primary600};
+                    &:active {
+                        background-color: ${Variables.Colors.Primary600};
+                    }
                 }
             }
         `}
@@ -648,12 +647,14 @@ const ButtonInput = styled.button`
     })};
     color: ${Variables.Colors.Primary500};
 
-    &:hover {
-        color: ${Variables.Colors.Primary300};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            color: ${Variables.Colors.Primary300};
+        }
 
-    &:active {
-        color: ${Variables.Colors.Primary600};
+        &:active {
+            color: ${Variables.Colors.Primary600};
+        }
     }
 
     &:disabled {

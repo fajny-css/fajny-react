@@ -34,21 +34,15 @@ const Container = styled.div<styleProps>`
         padding: ${Variables.Spacers.XS} ${Variables.Spacers.S};
         transition: ${Variables.Transitions.Short};
 
-        &:hover {
-            background-color: ${Variables.Colors.Primary300};
-            color: ${Variables.Colors.White};
-        }
+        @media ${Variables.Breakpoints.Hover} {
+            &:hover {
+                background-color: ${Variables.Colors.Primary300};
+                color: ${Variables.Colors.White};
+            }
 
-        &:active {
-            background-color: ${Variables.Colors.Primary600};
-            color: ${Variables.Colors.White};
-        }
-
-        @media ${Variables.Breakpoints.Touch} {
-            &:hover,
             &:active {
-                background-color: transparent;
-                color: ${Variables.Colors.Primary500};
+                background-color: ${Variables.Colors.Primary600};
+                color: ${Variables.Colors.White};
             }
         }
     }

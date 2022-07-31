@@ -188,13 +188,9 @@ const Label = styled.label<styleProps>`
     overflow: hidden;
     cursor: pointer;
 
-    &:hover ${StyledHoverContainer} {
-        opacity: 1;
-    }
-
-    @media ${Variables.Breakpoints.Touch} {
+    @media ${Variables.Breakpoints.Hover} {
         &:hover ${StyledHoverContainer} {
-            opacity: 0;
+            opacity: 1;
         }
     }
 
@@ -203,8 +199,10 @@ const Label = styled.label<styleProps>`
         css`
             cursor: not-allowed;
 
-            &:hover ${StyledHoverContainer} {
-                opacity: 0;
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover ${StyledHoverContainer} {
+                    opacity: 0;
+                }
             }
         `}
 `

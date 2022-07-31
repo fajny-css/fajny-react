@@ -75,12 +75,14 @@ const Container = styled(P)<styleProps>`
             a {
                 color: ${Mixins.ColorsHoverDefault};
 
-                &:hover {
-                    color: ${Mixins.ColorsHoverHover};
-                }
+                @media ${Variables.Breakpoints.Hover} {
+                    &:hover {
+                        color: ${Mixins.ColorsHoverHover};
+                    }
 
-                &:active {
-                    color: ${Mixins.ColorsHoverActive};
+                    &:active {
+                        color: ${Mixins.ColorsHoverActive};
+                    }
                 }
             }
         `}
@@ -93,7 +95,9 @@ const Separator = styled.span<styleProps>`
 `
 
 const Item = styled.span`
-    &:hover ${Separator}, &:active ${Separator} {
-        color: ${Variables.Colors.Black};
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover ${Separator}, &:active ${Separator} {
+            color: ${Variables.Colors.Black};
+        }
     }
 `

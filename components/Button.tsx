@@ -137,18 +137,20 @@ const Container = styled.button<styleProps>`
             ? Variables.Colors.Primary500
             : Mixins.ColorsHoverDefault};
 
-    &:hover {
-        background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverHover};
-        color: ${({ $buttonStyle }) =>
-            ($buttonStyle === "text" || $buttonStyle === "outline") && Mixins.ColorsHoverHover};
-        border-color: ${({ $buttonStyle }) => $buttonStyle === "outline" && Mixins.ColorsHoverHover};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverHover};
+            color: ${({ $buttonStyle }) =>
+                ($buttonStyle === "text" || $buttonStyle === "outline") && Mixins.ColorsHoverHover};
+            border-color: ${({ $buttonStyle }) => $buttonStyle === "outline" && Mixins.ColorsHoverHover};
+        }
 
-    &:active {
-        background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverActive};
-        color: ${({ $buttonStyle }) =>
-            ($buttonStyle === "text" || $buttonStyle === "outline") && Mixins.ColorsHoverActive};
-        border-color: ${({ $buttonStyle }) => $buttonStyle === "outline" && Mixins.ColorsHoverActive};
+        &:active {
+            background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverActive};
+            color: ${({ $buttonStyle }) =>
+                ($buttonStyle === "text" || $buttonStyle === "outline") && Mixins.ColorsHoverActive};
+            border-color: ${({ $buttonStyle }) => $buttonStyle === "outline" && Mixins.ColorsHoverActive};
+        }
     }
 
     &:disabled {

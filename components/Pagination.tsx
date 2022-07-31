@@ -112,13 +112,15 @@ const Button = styled.button<buttonStyleProps>`
         css`
             transition: ${Variables.Transitions.Short};
 
-            &:hover {
-                background-color: ${Variables.Colors.Primary300};
-                color: ${Variables.Colors.White};
-            }
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover {
+                    background-color: ${Variables.Colors.Primary300};
+                    color: ${Variables.Colors.White};
+                }
 
-            &:active {
-                background-color: ${Variables.Colors.Primary600};
+                &:active {
+                    background-color: ${Variables.Colors.Primary600};
+                }
             }
         `}
 

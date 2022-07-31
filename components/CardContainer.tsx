@@ -50,13 +50,10 @@ const Container = styled.div<styleProps>`
                 font-weight: ${Variables.FontWeights.Regular};
             }
 
-            &:hover {
-                transform: scale(1.02);
-                box-shadow: ${Variables.Shadows.XL};
-
-                @media ${Variables.Breakpoints.Touch} {
-                    transform: scale(1);
-                    box-shadow: ${Variables.Shadows.M};
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover {
+                    transform: scale(1.02);
+                    box-shadow: ${Variables.Shadows.XL};
                 }
             }
         `}

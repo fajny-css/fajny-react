@@ -107,55 +107,20 @@ const Container = styled.button<styleProps>`
             ? Variables.Colors.White
             : $buttonStyle === "transparent" && Mixins.ColorsHoverDefault};
 
-    &:hover {
-        background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverHover};
-        color: ${({ $buttonStyle }) => $buttonStyle === "transparent" && Mixins.ColorsHoverHover};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:hover {
+            background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverHover};
+            color: ${({ $buttonStyle }) => $buttonStyle === "transparent" && Mixins.ColorsHoverHover};
+        }
 
-    &:active {
-        background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverActive};
-        color: ${({ $buttonStyle }) => $buttonStyle === "transparent" && Mixins.ColorsHoverActive};
+        &:active {
+            background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverActive};
+            color: ${({ $buttonStyle }) => $buttonStyle === "transparent" && Mixins.ColorsHoverActive};
+        }
     }
 
     &:disabled {
         background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Variables.Colors.Gray100};
         color: ${Variables.Colors.Gray500};
     }
-
-    @media ${Variables.Breakpoints.Touch} {
-        &:hover,
-        &:active {
-            background-color: ${({ $buttonStyle }) => $buttonStyle === "plain" && Mixins.ColorsHoverDefault};
-        }
-    }
 `
-
-// .icon-container {
-//         width: 100%;
-//         height: 100%;
-//         @include inlineFlex(center, center);
-//         .icon {
-//             --icon-size: 32px;
-//         }
-//     }
-//     &[data-button-style="plain"] {
-//         @include colorHover(color, background-color);
-//         &[data-color="white"] {
-//             color: ${Variables.Colors.Primary50}0;
-//         }
-//         &:disabled,
-//         &:disabled:hover,
-//         &:disabled:active {
-//             background-color: ${Variables.Colors.Gray100};
-//             color: ${Variables.Colors.Gray50}0;
-//         }
-//     }
-//     &[data-button-style="transparent"] {
-//         background-color: transparent;
-//         @include colorHover(color, color);
-//         &:disabled,
-//         &:disabled:hover,
-//         &:disabled:active {
-//             color: ${Variables.Colors.Gray50}0;
-//         }
-//     }

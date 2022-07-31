@@ -145,19 +145,14 @@ const Button = styled.button`
     color: ${Variables.Colors.Primary500};
     transition: ${Variables.Transitions.Short};
 
-    &:not(:disabled):hover {
-        background-color: ${Variables.Colors.Primary300};
-        color: ${Variables.Colors.White};
-    }
+    @media ${Variables.Breakpoints.Hover} {
+        &:not(:disabled):hover {
+            background-color: ${Variables.Colors.Primary300};
+            color: ${Variables.Colors.White};
+        }
 
-    &:not(:disabled):active {
-        background-color: ${Variables.Colors.Primary600};
-    }
-
-    @media ${Variables.Breakpoints.Touch} {
-        &:not(:disabled):hover,
         &:not(:disabled):active {
-            background-color: transparent;
+            background-color: ${Variables.Colors.Primary600};
         }
     }
 

@@ -165,12 +165,14 @@ const Text = styled(Small)<textProps>`
         css`
             transition: ${Variables.Transitions.Short};
 
-            &:hover {
-                color: ${Variables.Colors.Primary300};
-            }
+            @media ${Variables.Breakpoints.Hover} {
+                &:hover {
+                    color: ${Variables.Colors.Primary300};
+                }
 
-            &:active {
-                color: ${Variables.Colors.Primary600};
+                &:active {
+                    color: ${Variables.Colors.Primary600};
+                }
             }
         `}
 `
