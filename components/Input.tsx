@@ -134,7 +134,7 @@ const InputFunction = ({
                 (type === "search" && clearSearch && typeof value === "string" && value.length > 0)) && (
                 <RightContainer $disabled={disabled}>
                     {password && (
-                        <ButtonInput onClick={() => setIsVisible(!isVisible)} disabled={disabled}>
+                        <ButtonInput type="button" onClick={() => setIsVisible(!isVisible)} disabled={disabled}>
                             {isVisible ? (
                                 iconHidePassword ? (
                                     <Icon src={iconHidePassword} size={24} />
@@ -171,7 +171,7 @@ const InputFunction = ({
                         ))}
 
                     {type === "search" && clearSearch && typeof value === "string" && value.length > 0 && (
-                        <ButtonInput onClick={clearSearch} disabled={disabled}>
+                        <ButtonInput type="button" onClick={clearSearch} disabled={disabled}>
                             {iconClear ? (
                                 <Icon src={iconClear} size={24} />
                             ) : (

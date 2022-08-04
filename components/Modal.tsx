@@ -104,6 +104,7 @@ const CloseButton = styled.button`
         $align: "center",
         $justify: "center",
     })};
+    z-index: 20;
 
     @media ${Variables.Breakpoints.Hover} {
         &:hover {

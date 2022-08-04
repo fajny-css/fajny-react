@@ -140,10 +140,6 @@ export interface baseProps extends React.HTMLAttributes<HTMLDivElement> {
     children: React.ReactNode[]
     controls?: boolean
     pagination?: boolean
-    iconPrev?: string
-    fajnyIconPrev?: fajnyIconsType
-    iconNext?: string
-    fajnyIconNext?: fajnyIconsType
     autoplay?: number
 }
 

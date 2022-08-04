@@ -9,8 +9,8 @@ import Mixins from "./Mixins"
 
 /*==================== Component ====================*/
 
-const Section = ({ gap, children, ...props }: props) => (
-    <Container $gap={gap} {...props}>
+const Section = ({ gap, children, div, ...props }: props) => (
+    <Container $gap={gap} as={div ? "div" : "section"} {...props}>
         {children}
     </Container>
 )
@@ -33,6 +33,7 @@ interface styleProps extends React.HTMLAttributes<HTMLDivElement> {
 
 interface props extends React.HTMLAttributes<HTMLDivElement> {
     gap?: sizesTypes
+    div?: boolean
 }
 
 /*==================== Styles ====================*/

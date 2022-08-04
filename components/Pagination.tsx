@@ -21,14 +21,26 @@ const Pagination = ({ justify = "left", children, ...props }: props) => (
     </Container>
 )
 
-const PaginationButton = ({ number, more, icon, fajnyIcon, active, disabled, ...props }: buttonProps) => (
+const PaginationButton = ({
+    number,
+    more,
+    prev,
+    next,
+    iconPrev,
+    fajnyIconPrev = "chevron-left-solid",
+    iconNext,
+    fajnyIconNext = "chevron-right-solid",
+    active,
+    disabled,
+    ...props
+}: buttonProps) => (
     <Button as={more ? "span" : "button"} $active={active} $more={more} disabled={disabled} {...props}>
         {more ? (
             "..."
-        ) : icon ? (
-            <Icon src={icon} size={16} />
-        ) : fajnyIcon ? (
-            <FajnyIcon name={fajnyIcon} size={16} />
+        ) : (prev && iconPrev) || (next && iconNext) ? (
+            <Icon src={iconPrev ? iconPrev : iconNext ? iconNext : ""} size={16} />
+        ) : prev || next ? (
+            <FajnyIcon name={prev ? fajnyIconPrev : fajnyIconNext} size={16} />
         ) : (
             number
         )}
@@ -64,22 +76,42 @@ interface baseButtonProps extends React.HTMLAttributes<HTMLButtonElement> {
     number?: number
     more?: boolean
     active?: boolean
+    prev?: boolean
+    next?: boolean
     disabled?: boolean
 }
 
 interface possible1 extends baseButtonProps {
-    icon?: string
-    fajnyIcon?: never
+    iconPrev?: string
+    fajnyIconPrev?: never
+    iconNext?: string
+    fajnyIconNext?: never
 }
 
 interface possible2 extends baseButtonProps {
-    icon?: never
-    fajnyIcon?: fajnyIconsType
+    iconPrev?: never
+    fajnyIconPrev?: fajnyIconsType
+    iconNext?: string
+    fajnyIconNext?: never
 }
 
-type possibleProps = possible1 | possible2
+interface possible3 extends baseButtonProps {
+    iconPrev?: fajnyIconsType
+    fajnyIconPrev?: never
+    iconNext?: never
+    fajnyIconNext?: fajnyIconsType
+}
 
-type buttonProps = RequireAtLeastOne<possibleProps, "number" | "more" | "icon" | "fajnyIcon">
+interface possible4 extends baseButtonProps {
+    iconPrev?: never
+    fajnyIconPrev?: fajnyIconsType
+    iconNext?: never
+    fajnyIconNext?: fajnyIconsType
+}
+
+type possibleProps = possible1 | possible2 | possible3 | possible4
+
+type buttonProps = RequireAtLeastOne<possibleProps, "number" | "more" | "prev" | "next">
 
 /*==================== Styles ====================*/
 

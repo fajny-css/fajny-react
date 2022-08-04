@@ -68,7 +68,8 @@ const Container = styled.span<styleProps>`
     ${({ $textStyle }) =>
         $textStyle === "dotted" || $textStyle === "underline"
             ? css`
-                  border-bottom: 1px ${$textStyle} currentColor;
+                  border-bottom: 1px ${$textStyle === "dotted" ? "dotted" : $textStyle === "underline" && "solid"}
+                      currentColor;
               `
             : css`
                   font-weight: ${Variables.FontWeights.Black};
